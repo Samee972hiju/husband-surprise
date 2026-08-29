@@ -1,0 +1,15 @@
+body {
+  background: pink;
+  font-family: 'Arial';
+  text-align: center;
+  padding-top: 50px;
+}
+#surprise {
+  font-size: 24px;
+  color: #d63384;
+  animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+    }
