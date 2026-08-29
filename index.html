@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Husband 🩷</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{background: linear-gradient(180deg,#ffe6f0,#ffd6e8); overflow:hidden; height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; color:#d63384;}
+  .screen{position:absolute; width:100%; height:100%; display:none; flex-direction:column; justify-content:center; align-items:center; padding:20px; animation:fadeIn 1s;}
+  .active{display:flex;}
+  h1{font-size:2.2rem; margin-bottom:10px; color:#d63384;}
+  p{font-size:1.1rem; margin:10px 0; color:#b03060;}
+  .btn{background:#ff80bf; border:none; padding:15px 30px; border-radius:30px; font-size:1.2rem; color:white; cursor:pointer; box-shadow:0 4px 15px rgba(255,128,191,0.4); transition:0.3s; margin-top:15px;}
+  .btn:hover{transform:scale(1.05);}
+  .bubu, .dudu, .anime{font-size:5rem; margin:10px;}
+  .hearts, .flowers, .sparkles{position:absolute; width:100%; height:100%; top:0; left:0; pointer-events:none;}
+  .heart, .flower, .sparkle{position:absolute; animation:float 6s infinite linear;}
+  @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
+  @keyframes float{0%{transform:translateY(100vh) rotate(0);} 100%{transform:translateY(-10vh) rotate(360deg);}}
+  .speech{background:white; padding:10px 20px; border-radius:20px; margin:10px; box-shadow:0 3px 10px rgba(0,0,0,0.1); max-width:80%;}
+</style>
+</head>
+<body>
+
+<!-- 1. Opening screen -->
+<div class="screen active" id="screen1">
+  <h1>For My Husband 🩷🥺</h1>
+  <p>Aik chota sa surprise sirf aap ke liye…</p>
+  <button class="btn" onclick="next(2)">🩷 Press Me</button>
+</div>
+
+<!-- 2. Bubu & Dudu scene -->
+<div class="screen" id="screen2">
+  <p>🎁 Cute gift box open</p>
+  <div class="bubu">🤍</div>
+  <div class="dudu">🤎</div>
+  <div class="speech" id="dialogue"></div>
+  <button class="btn" onclick="next(3)">🔥 Ek aur surprise…</button>
+  <div class="hearts"></div>
+  <div class="flowers"></div>
+</div>
+
+<!-- 3. Anime husband scene -->
+<div class="screen" id="screen3">
+  <div class="anime">👧🏻 🤲🏻 👦🏻</div>
+  <p id="dua">Allah aapko hamesha khush rakhe...<br>Aap meri duaon ka jawab hain...<br>I love you, mera bacha 🩷</p>
+  <button class="btn" onclick="next(4)">💌 Last Message</button>
+  <div class="hearts"></div>
+  <div class="flowers"></div>
+</div>
+
+<!-- 4. Final screen -->
+<div class="screen" id="screen4">
+  <div class="bubu">🤍</div>
+  <div class="dudu">🤎</div>
+  <h1>I love you, mera bacha 🩷</h1>
+  <p>Bubu 🤍 → Dudu 🤎</p>
+  <div class="hearts"></div>
+  <div class="flowers"></div>
+  <div class="sparkles"></div>
+</div>
+
+<script>
+function next(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen'+n).classList.add('active');
+  if(n==2) runBubuDuduScene();
+  makeHearts(); 
+  makeFlowers(); 
+  if(n==4) makeSparkles();
+}
+
+function runBubuDuduScene(){
+  const d=document.getElementById('dialogue');
+  d.innerHTML="🤍 White Bubu box se nikle<br>🤎 Brown Dudu saamne aaye";
+  setTimeout(()=>{d.innerHTML="Bubu pehle Dudu ko cute kiss kare 💋"},2000);
+  setTimeout(()=>{d.innerHTML="Bubu bole: I love you, dear husband g… 🥺🩷"},3500);
+  setTimeout(()=>{d.innerHTML="Phir Bubu dobara Dudu ko kiss kare 💋"},5000);
+  setTimeout(()=>{d.innerHTML="Bubu bole: I love you, mera bacha… 🥹🩷"},6500);
+  setTimeout(()=>{d.innerHTML="Phir dono cute sa hug karein 🧸🤍🤎"},8000);
+}
+
+function makeHearts(){
+  const c=document.querySelector('.active .hearts'); if(!c)return; c.innerHTML=''; 
+  for(let i=0;i<20;i++){
+    let h=document.createElement('div'); h.className='heart'; h.innerHTML='💕'; 
+    h.style.left=Math.random()*100+'%'; h.style.fontSize=(15+Math.random()*20)+'px'; 
+    h.style.animationDelay=Math.random()*5+'s'; c.appendChild(h);
+  }
+}
+
+function makeFlowers(){
+  const c=document.querySelector('.active .flowers'); if(!c)return; c.innerHTML=''; 
+  for(let i=0;i<20;i++){
+    let f=document.createElement('div'); f.className='flower'; f.innerHTML='🌸'; 
+    f.style.left=Math.random()*100+'%'; f.style.fontSize=(15+Math.random()*20)+'px'; 
+    f.style.animationDelay=Math.random()*5+'s'; c.appendChild(f);
+  }
+}
+
+function makeSparkles(){
+  const c=document.querySelector('.active .sparkles'); if(!c)return; c.innerHTML=''; 
+  for(let i=0;i<15;i++){
+    let s=document.createElement('div'); s.className='sparkle'; s.innerHTML='✨'; 
+    s.style.left=Math.random()*100+'%'; s.style.fontSize=(15+Math.random()*20)+'px'; 
+    s.style.animationDelay=Math.random()*5+'s'; c.appendChild(s);
+  }
+}
+
+makeHearts(); makeFlowers();
+</script>
+
+</body>
+  </html>
